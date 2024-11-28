@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,26 +56,30 @@ fun ListRow(model: FilmModel) {
             .fillMaxWidth()
             .background(Color(0xFF063041)) // Using hexadecimal color
     ) {
-        Image(
-            painter = painterResource(id = model.image),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .size(100.dp)
-                .padding(5.dp)
-        )
-        Text(
-            text = model.name,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White
-        )
-        Text(
-            text = model.director,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Color.White
-        )
+        Column () {
+            Image(
+                painter = painterResource(id = model.image),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(100.dp)
+                    .padding(5.dp)
+            )
+        }
+        Column () {
+            Text(
+                text = model.name,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.White
+            )
+            Text(
+                text = model.director,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.White
+            )
+        }
     }
 }
 
